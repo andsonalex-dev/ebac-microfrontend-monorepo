@@ -1,0 +1,24 @@
+{
+  "name": "ebac-microfrontend",
+  "version": "0.1.0",
+  "private": true,
+  "workspaces": [
+    "cardapio",
+    "container",
+    "pedido"
+  ],
+  "scripts": {
+    "dev": "concurrently \"npm run dev --workspace=container\" \"npm run dev --workspace=cardapio\" \"npm run dev --workspace=pedido\"",
+    "dev:container": "npm run dev --workspace=container",
+    "dev:cardapio": "npm run dev --workspace=cardapio",
+    "dev:pedido": "npm run dev --workspace=pedido",
+    "build": "npm run build --workspace=container && npm run build --workspace=cardapio && npm run build --workspace=pedido",
+    "build:container": "npm run build --workspace=container",
+    "build:cardapio": "npm run build --workspace=cardapio",
+    "build:pedido": "npm run build --workspace=pedido",
+    "lint": "npm run lint --workspaces"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
